@@ -15,6 +15,7 @@ print(my_string[::2])
 print(my_string.upper());
 print(my_string.lower());
 print(my_string.split());
+print(my_string.split('o'));
 
 #string are immutable 
 
