@@ -31,3 +31,24 @@ print(result, type(result))
 
 result = addNumTypeCheck(2,3)
 print(result, type(result))
+
+print();
+print("Lambda Functions")
+
+#Lambda Functions
+
+
+#Filter
+mylist = [1,2,3,4,5,6,7,8]
+
+def even_bool(num):
+  return num%2 == 0;
+
+evens = filter(even_bool, mylist)
+
+even_with_lambda = filter(lambda num:num%2==0, mylist)
+
+print(list(evens));
+print("Lambda implentation", list(even_with_lambda))
+
+print('x' in [1,3,4,5,6])
