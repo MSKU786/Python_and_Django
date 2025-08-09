@@ -34,7 +34,7 @@ print(stringBits('Hlo'))
 
 def end_other(a, b):
   #optional
-  
+  # a[-len(b)].lower() == b.lower() or b[-len(a)].lower() == a.lower(); 
   return ( a[-min(len(a), len(b)):].lower() == b[-min(len(a), len(b)):].lower());
 
 print(end_other("Hlabc",'aBc'));
@@ -53,3 +53,17 @@ def doubleChars(str):
 
 print(doubleChars('The'))
 print(doubleChars('AAbb'))
+
+
+## Return number of even integers in an array
+ 
+def count_evens(nums):
+  count = 0
+  for num in nums:
+    if (num%2==0): 
+      count+=1
+  
+  return count
+
+print(count_evens([1,2,3,4,5,67,87]));
+print(count_evens([1,1,1,1,3,3,3,3,4]))
