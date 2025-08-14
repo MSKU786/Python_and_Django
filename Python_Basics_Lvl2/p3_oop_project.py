@@ -1,0 +1,23 @@
+from random import shuffle
+
+# Two useful variables to create cards 
+
+SUITE = 'H D S C'.split()
+RANKS = '2 3 4 5 6 7 8 9 10 J Q K A'.split()
+
+class Deck:
+  """
+    This is Deck Class. The object will create a deck of cards to initate play. You can then use this Deck list of artds to split in half and give to the player.s It will use SUITE and RANKS to create the dec. It should aslo have a methods for spllitting the deck in half and shuffling the deck.
+  """
+  pass
+
+class Hand:
+  """
+    This is the Handclass. each player has a Hand, and can add or remove careds from that hand. There should be an add and remove card method here
+  """
+  pass 
+
+class Player:
+  """
+  This is the player class, whichc takes ihna anme an instance of a Hand class object. The player can they play cards and check if they still have cards. 
+  """
