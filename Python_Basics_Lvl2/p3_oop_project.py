@@ -11,6 +11,7 @@ class Deck:
   """
 
   def __init__(self):
+    print("Creating new orderd deck")
     self.cards = []
     for s in SUITE:
       for r in RANKS:
@@ -27,14 +28,30 @@ class Deck:
 
 class Hand:
   """
-    This is the Handclass. each player has a Hand, and can add or remove careds from that hand. There should be an add and remove card method here
+    This is the Handclass. each player has a Hand, and can add or remove cards from that hand. There should be an add and remove card method here
   """
-  pass 
+  def __init__(self, cards):
+    self.cards = cards
+
+  def addCard(self, card):
+    temp = self.cards
+    self.cards = [card]
+    self.cards.append(temp)
+
+  def removeCard(self):
+    return self.cards.pop()
 
 class Player:
   """
-  This is the player class, whichc takes ihna anme an instance of a Hand class object. The player can they play cards and check if they still have cards. 
+  This is the player class, whichc takes in a name an instance of a Hand class object. The player can they play cards and check if they still have cards. 
   """
+
+  def __init__(self, name, hand):
+    self.name = name
+    self.hand = hand 
+  
+  def isCardsLeft(self):
+    return self.hand.cards.length > 0
 
 deck = Deck()
 deck.shuffleDeck()
