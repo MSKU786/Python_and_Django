@@ -135,12 +135,12 @@ while user.isCardsLeft() and comp.isCardsLeft():
       print(f"War comparison: {comp.name} plays {c_war_card}, {user.name} plays {u_war_card}")
       
       # Compare war cards - higher rank wins
-      if RANKS.index(c_war_card[1]) > RANKS.index(u_war_card[1]):
-        comp.hand.addCard(table_cards)
-        print(f"{comp.name} wins the war and gets all cards!")
-      else:
+      if RANKS.index(c_war_card[1]) < RANKS.index(u_war_card[1]):
         user.hand.addCard(table_cards)
         print(f"{user.name} wins the war and gets all cards!")
+      else:
+        comp.hand.addCard(table_cards)
+        print(f"{comp.name} wins the war and gets all cards!")
     else:
       # If someone ran out of cards during war, give remaining cards to the other player
       if user.isCardsLeft():
