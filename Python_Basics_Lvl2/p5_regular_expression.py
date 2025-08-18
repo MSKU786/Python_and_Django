@@ -13,7 +13,7 @@ for pattern in patterns:
     print("NOT MATCHED")
   
   match = re.search(pattern, text)
-  print(match.start())
+  #print(match.start)
 
   split_term = ','
   email = 'user@gmail.com,manish@gmail.com'
@@ -30,8 +30,19 @@ def multi_re_find(patterns, pharse):
   
 test_phrase = 'sdsd....sssddd...sddsdddd...dsds....dsssss...sddddd'
 
-test_pattern = ['sd*, s*d']
+# Quantifier and character class examples
+test_pattern = [
+  'sd*',      # 's' followed by zero or more 'd' characters
+  's*d',      # zero or more 's' characters followed by a 'd' (so just 'd' also matches)
+  'sd{3}',    # 's' followed by exactly 3 'd' characters (e.g., 'sddd')
+  'sd{1,3}',  # 's' followed by between 1 and 3 'd' characters (inclusive)
+  's[sd]+',   # 's' followed by one or more characters that are either 's' or 'd'
+]
 
 
 multi_re_find(test_pattern, test_phrase)
 
+test_phrase_2 = 'This is a string! But it has punctuation. How we can remove it'
+
+test_pattern = ['[^!.?]+', '[a-z]+', '[A-Z]+']  # one or more characters that are not '!', '.', or '?'
+multi_re_find(test_pattern, test_phrase_2)
