@@ -32,7 +32,7 @@ def outer_function(param = 'first'):
   
   if param == 'first':
     return inner
-  else
+  else:
     return inner2
   print("End of outer function")
 
@@ -43,3 +43,16 @@ def outer_function(param = 'first'):
 x = outer_function();
 
 print(x())
+
+
+
+# Passing funciton as parament
+
+def greet():
+  return "Hi Shubham"
+
+def other(func):
+  print("hello")
+  print(func())
+
+other(greet())
