@@ -10,3 +10,5 @@ To Activiate the env
 conda activate myDjangoEnv
 activate myDjangoEnv
 '''
+
+### Django Project
