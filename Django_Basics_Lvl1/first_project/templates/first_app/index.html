@@ -7,11 +7,25 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Document</title>
+    <title>Django Level Two</title>
     <link rel = "stylesheet" href = "{% static "css/mystyle.css" %}">
   </head>
   <body>
-    <h1>Hello This is GOJO!!! GOJO SATORU!!!</h1>
+    <h1>Hello! Welcome to Djagno Level Two</h1>
+    <h2>Here are your access records:</h2>
+    <div class="djangoTwo">
+      {% if access_records %}
+      <table>
+        <thead>
+          <th>Site Name</th>
+          <th>Access date</th>
+        </thead>
+      </table>
+      {% for ac in access_records %}
+      <tr>
+        <td>{{ac.name}}</td>
+      </tr>
+    </div>
     <img src = "{% static "images/gojo.jpg" %}" alt = "GOJO SATORU">
   </body>
 </html>
