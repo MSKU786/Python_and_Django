@@ -7,12 +7,13 @@ django.setup()
 
 ## Fake top script
 import random
-from task_project.models import Users
+
+from AppTwo.models import User
 from faker import Faker
 
 fakergen = Faker() 
 
-def populate(10):
+def populateUsers(N=10):
   for i in range(N):
     fake_first_name = fakergen.first_name();
     fake_last_name = fakergen.last_name();
@@ -21,5 +22,5 @@ def populate(10):
 
 if __name__ == '__main__':
   print("Populating the databases...Please Wait");
-  populate(20)
+  populateUsers(20)
   print("Populated Users");
