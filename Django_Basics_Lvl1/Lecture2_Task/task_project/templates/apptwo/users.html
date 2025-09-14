@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Users Page</title>
+    <link rel = "stylesheet" href = "{% static "css/mystyle.css" %}">
+  </head>
+  <body>
+    <h1>Hello! This is the User Page....</h1>
+    <h3>List of all Users</h3>
+    <div class="userRecord">
+      {% if user_records%}
+      <table>
+        <thead>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </thead>
+        {% for user in user_records %}
+        <tr>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.email}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p>No users found</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
