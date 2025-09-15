@@ -14,4 +14,4 @@ def help(request):
 def users(request):
   users_list = User.objects.order_by('email')
   user_dict = {'users_records': users_list}
-  return render(request, 'apptwo/index.html', context=user_dict)
+  return render(request, 'apptwo/users.html', context=user_dict)

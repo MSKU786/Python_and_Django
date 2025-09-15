@@ -15,10 +15,12 @@ fakergen = Faker()
 
 def populateUsers(N=10):
   for i in range(N):
-    fake_first_name = fakergen.first_name();
-    fake_last_name = fakergen.last_name();
-    fake_email = fakergen.email();
+    fake_name = fakergen.name().split()
+    fake_first_name = fake_name[0]
+    fake_last_name = fake_name[1]
+    fake_email = fakergen.email()
     users = User.objects.get_or_create(first_name = fake_first_name, last_name = fake_last_name, email = fake_email)[0];
+    print(users);
 
 if __name__ == '__main__':
   print("Populating the databases...Please Wait");
