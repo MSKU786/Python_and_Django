@@ -11,27 +11,15 @@
     <link rel = "stylesheet" href = "{% static "css/mystyle.css" %}">
   </head>
   <body>
-    <h1>Sign Up here..........</h1>
-    <h3>List of all Users</h3>
-    <div class="userRecord">
-      {% if users_records %}
-      <table>
-        <thead>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-        </thead>
-        {% for user in users_records %}
-        <tr>
-          <td>{{user.first_name}}</td>
-          <td>{{user.last_name}}</td>
-          <td>{{user.email}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      {% else %}
-      <p>No users found</p>
-      {% endif %}
+    <div class="container">
+      <h1>Sign Up here..........</h1>
+      <form method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class = "btn btn-primary" value="Submit" />
+      </form>
+    </div>
+
     </div>
   </body>
 </html>

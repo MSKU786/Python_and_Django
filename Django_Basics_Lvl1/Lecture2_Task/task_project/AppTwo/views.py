@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from AppTwo.models import User
-fromm AppTwo.forms import NewUserForm
+from AppTwo.forms import NewUserForm
 # Create your views here.
-def index(req):
-  return HttpResponse('<em>My Second App</em>')
+def index(request):
+  return render(request, 'apptwo/index.html')
 
 
 def help(request):
@@ -23,7 +23,7 @@ def users(request):
 
     if form.is_valid():
       form.save(commit=True)
-      return help(request)
+      return index(request)
     else:
       print("Error!! form is not valid")
   
