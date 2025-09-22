@@ -1,13 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>
-    Welcome! to base HTML
-  </h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="navbar-nav nav">
+          <li>
+            <a
+              class="navbar-brand"
+              href="#"
+              >Brand</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar-link"
+              href="{% url 'admin:index' %}"
+              >Admin</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar-link"
+              href="{% url 'basic_app:other' %}"
+              >Other</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      {% block body_block %}
+      <!-- Anything outside of this will be inherit if you extend! -->
+      {% endblock %}
+    </div>
+  </body>
 </html>
