@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from basic_app.forms import UserProfileInfoForm
+from basic_app.forms import UserProfileInfoForm,UserForm
 
 # Create your views here.
 def index(request):
@@ -12,7 +12,7 @@ def register(request):
     user_form = UserForm(data=request.POST)
     profile_form = UserProfileInfoForm(data=request.POST)
 
-    if user_form.is_valid() and profile_form_is_valid():
+    if user_form.is_valid() and profile_form.is_valid():
 
       user = user_form.save()
       user.set_password(user.password)

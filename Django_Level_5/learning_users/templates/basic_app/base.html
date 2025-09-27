@@ -30,18 +30,18 @@
             >
             <a
               class="navbar-link"
-              href="{% url  %}"
+              href="{% url 'admin:index' %}"
               >Admin</a
             >
             <a
               class="navbar-link"
-              href="{% url 'basic_app:regsiter' %}"
+              href="{% url 'basic_app:register' %}"
               >Register</a
             >
           </li>
         </ul>
       </div>
     </nav>
-    <div class="container">{% body body_block %} {% end_block %}</div>
+    <div class="container">{% block body_block %} {% endblock %}</div>
   </body>
 </html>
