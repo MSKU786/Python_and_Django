@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from basic_app/forms import UserProfileInfoForm
+from basic_app.forms import UserProfileInfoForm
 
 # Create your views here.
 def index(request):
