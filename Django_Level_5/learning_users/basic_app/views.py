@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from basic_app.forms import UserProfileInfoForm,UserForm
+from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 def index(request):
