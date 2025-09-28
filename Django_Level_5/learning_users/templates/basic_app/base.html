@@ -39,6 +39,15 @@
               >Register</a
             >
           </li>
+
+          {% if user.is_authenticated $}
+          <li>
+            <a
+              class="navbar-link"
+              href="{% url 'basic_app:register' %}"
+              >Register</a
+            >
+          </li>
         </ul>
       </div>
     </nav>

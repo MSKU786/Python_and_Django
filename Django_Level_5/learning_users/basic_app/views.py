@@ -47,6 +47,10 @@ def user_logout(request):
   logout(request)
   return HttpResponseRedirect(reverse('index'))
 
+@login_required
+def special(request):
+  return HttpResponse("You are logged in... Nice!!!!!!")
+
 def user_login(request):
 
   if request.method == 'POST':
