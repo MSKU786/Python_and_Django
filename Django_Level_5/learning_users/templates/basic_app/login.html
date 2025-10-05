@@ -3,7 +3,7 @@
   <h1>Please Login!!!</h1>
   <form
     method="post"
-    action="{% url 'basic_app:user_login' %}"
+    action="{% url 'basic_app:login' %}"
   >
     {% csrf_token %}
     <label for="username">Username:</label>
@@ -12,10 +12,10 @@
       placeholder="Enter Username"
       name="username"
     />
-    <label for="passowrd">Passowrd:</label>
+    <label for="password">Passowrd:</label>
     <input
-      type="text"
-      name="passowrd "
+      type="password"
+      name="password"
     />
     <input
       type="submit"

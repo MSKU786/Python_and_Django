@@ -40,14 +40,23 @@
             >
           </li>
 
-          {% if user.is_authenticated $}
+          {% if user.is_authenticated %}
           <li>
             <a
               class="navbar-link"
-              href="{% url 'basic_app:register' %}"
-              >Register</a
+              href="{% url 'logout' %}"
+              >Logout</a
             >
           </li>
+          {% else %}
+          <li>
+            <a
+              class="navbar-link"
+              href="{% url 'basic_app:login' %}"
+              >Login</a
+            >
+          </li>
+          {% endif %}
         </ul>
       </div>
     </nav>

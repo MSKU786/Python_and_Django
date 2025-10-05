@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from basic_app.forms import UserProfileInfoForm,UserForm
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
-from djago.contrib.auth import authenticate,login,logout 
+from django.contrib.auth import authenticate,login,logout 
 
 # Create your views here.
 def index(request):
@@ -57,10 +57,11 @@ def user_login(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
 
+    print('--------------',username, password)
     user = authenticate(username=username, password=password)
 
     if user:
-      if user.is_active():
+      if user.is_active:
         login(request, user)
         return HttpResponseRedirect(reverse('index'))
       else:
