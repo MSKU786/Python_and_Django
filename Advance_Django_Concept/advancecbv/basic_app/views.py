@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View, Template View
+from django.views.generic import View, TemplateView, ListView, DetailView
 # from django.http import HttpResponse
 # # Create your views here.
 # def index(request):
@@ -9,10 +9,10 @@ from django.views.generic import View, Template View
 #   def get(self, request): 
 #     return HttpResponse("Class based views are hard to implement")
 
-class IndexView(TemplateView):
-  template_name = 'index.html'
+# class IndexView(TemplateView):
+#   template_name = 'index.html'
 
-  def get_context_data(self, **kwargs):
-    context= super().get_context_data(**kwargs)
-    context['injectme'] = 'BASIC INJECTION'
-    return context
+#   def get_context_data(self, **kwargs):
+#     context= super().get_context_data(**kwargs)
+#     context['injectme'] = 'BASIC INJECTION'
+#     return context
