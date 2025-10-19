@@ -15,31 +15,34 @@
     <title>Base</title>
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-static-top">
-      <ul class="navbar-nav nav">
-        <li>
-          <a
-            class="navbar-brand"
-            href="{% url 'basic_app:list' %}"
-            >Schoool</a
-          >
-        </li>
-        <li>
-          <a
-            class="navbar-link"
-            href="{% url 'admin:index' %}"
-            >Admin</a
-          >
-        </li>
-        <li>
-          <a
-            class="navbar-link"
-            href="#"
-            >Home</a
-          >
-        </li>
-      </ul>
-    </nav>
+    <div class="container">
+      <nav class="navbar navbar-default navbar-static-top">
+        <ul class="navbar-nav nav">
+          <li>
+            <a
+              class="navbar-brand"
+              href="{% url 'basic_app:list' %}"
+              >Schoool</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar-link"
+              href="{% url 'admin:index' %}"
+              >Admin</a
+            >
+          </li>
+          <li>
+            <a
+              class="navbar-link"
+              href="#"
+              >Home</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
     <div class="container">{% block body_block %} {% endblock %}</div>
   </body>
 </html>
