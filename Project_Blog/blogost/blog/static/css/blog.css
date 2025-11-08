@@ -13,5 +13,22 @@
   margin-right: auto;
 }
 
-.loader {
+.postdate {
+  text-align: center;
+}
+
+.posttitle {
+  text-align: center;
+  font-family: 'Kreon', 'Open Sans';
+  font-size: 3em;
+}
+
+.postcontent {
+  font-size: 1.53em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn-comment {
+  position: absolute;
+  right: 0px;
 }
