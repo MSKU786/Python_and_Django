@@ -1,10 +1,12 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.utils import timezone
-from blog.models import Post,Comment
+from blog.models import Post,Comments
 from django.views.generic import (TemplateView, ListView, DetailView, 
                                   CreateView, UpdateView, DeleteView)
-from django.contrib.auth.mixins import LoginRequiredMixins
-from blog.forms import PostForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from blog.forms import PostForm, CommentForm
 # Create your views here.
 
 
@@ -20,7 +22,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
   model = Post
 
-class PostCreatetView(LoginRequiredMixins,CreateView):
+class PostCreateView(LoginRequiredMixin,CreateView):
   login_url = '/login/'
   redirect_field_name = 'blog/post_detail.html'
 
@@ -28,7 +30,7 @@ class PostCreatetView(LoginRequiredMixins,CreateView):
   model = Post
 
 
-class PostUpdateView(LoginRequiredMixins,UpdateView):
+class PostUpdateView(LoginRequiredMixin,UpdateView):
   login_url = '/login/'
   redirect_field_name = 'blog/post_detail.html'
 
@@ -36,12 +38,12 @@ class PostUpdateView(LoginRequiredMixins,UpdateView):
   model = Post
 
 
-class PostDeleteView(LoginRequiredMixins, DeleteView):
+class PostDeleteView(LoginRequiredMixin, DeleteView):
   model = Post
   success_url = reverse_lazy('post_list')
 
 
-class DraftListView(LoginRequiredMixins, ListView):
+class DraftListView(LoginRequiredMixin, ListView):
   login_url = '/login/'
   redirect_field_name = 'blog/post_list.html'
 
@@ -66,7 +68,7 @@ def post_publish(request, pk):
 @login_required
 def add_comment_to_post(request,pk):
   post = get_object_or_404(Post,pk=pk)
-   if request.method == 'POST'::
+  if request.method == 'POST':
     form = CommentForm(request.POST)
     if form.is_valid():
       comment = form.save(commit=False)
@@ -80,13 +82,13 @@ def add_comment_to_post(request,pk):
 
 @login_required
 def comment_approve(request, pk):
-  comment = get_object_or_404(Comment,pk=pk)
+  comment = get_object_or_404(Comments,pk=pk)
   comment.approve()
   return redirect('post_detail', pk=comment.post.pk)
 
 @login_required
 def comment_remove(request, pk):
-  comment = get_object_or_404(Comment,pk=pk)
+  comment = get_object_or_404(Comments,pk=pk)
   post_pk = comment.post.pk
   comment.delete()
   return redirect('post_detail', pk=post_pk)
