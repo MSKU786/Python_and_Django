@@ -1,4 +1,4 @@
-{% extend "blog/base.html" %} {% block content%}
+{% extends "blog/base.html" %} {% block content %}
 <div class="centerstage">
   {% for post in post_list %}
   <div class="post">
@@ -10,5 +10,6 @@
       Comments: {{ post.approve_comments.count}}
     </a>
   </div>
+  {% endfor %}
 </div>
 {% endblock %}

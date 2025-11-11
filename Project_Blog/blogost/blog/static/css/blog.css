@@ -11,6 +11,7 @@
 .centerstage {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 .postdate {
@@ -31,4 +32,41 @@
 .btn-comment {
   position: absolute;
   right: 0px;
+}
+
+/* Post list styling */
+.post {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+.post:hover {
+  background-color: #f9f9f9;
+}
+
+.post h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.post h1 a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.post h1 a:hover {
+  color: #007bff;
+}
+
+.post .date {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.post .date p {
+  margin: 0;
 }
