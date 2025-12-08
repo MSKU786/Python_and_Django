@@ -29,6 +29,10 @@ class PostCreateView(LoginRequiredMixin,CreateView):
   form_class = PostForm
   model = Post
 
+  def form_valid(self, form):
+    form.instance.author = self.request.user
+    return super().form_valid(form)
+
 
 class PostUpdateView(LoginRequiredMixin,UpdateView):
   login_url = '/login/'
@@ -50,7 +54,7 @@ class DraftListView(LoginRequiredMixin, ListView):
   model = Post
 
   def get_queryset(self):
-    return Post.objects.filter(published_date_isnull=True).order_by('-created_date')
+    return Post.objects.filter(published_date__isnull=True).order_by('-create_date')
 
 
 ############----------------------###########
@@ -77,7 +81,7 @@ def add_comment_to_post(request,pk):
       return redirect('post_detail', pk=post.pk)
   else:
     form = CommentForm()
-  return render(request, 'blog/comment_form.html', {'form': form})
+  return render(request, 'blog/comments_form.html', {'form': form})
 
 
 @login_required
